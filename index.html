@@ -6,7 +6,11 @@
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <title>Document</title>
  </head>
- <body> <form method= "post" id = "addGroceryForm">
+ <body> 
+     <ul id= "groceries">
+     </ul>
+    
+    <form method= "post" id = "addGroceryForm">
         <input id= "groceryInput" type="text" placeholder="New Grocery">
         <button type="Submit">
         add 
@@ -22,7 +26,18 @@
         groceries.push(groceryInput.value);
         groceryInput.value = "";
 
-        console.log(groceries)
+        updateGroceries()
+    }
+    function updateGroceries (){
+        var groceriesElement = document.querySelector('#groceries')
+        groceriesElement.innerHTML = ''
+
+        for (var currentIndex = 0; currentIndex < groceries.length; currentIndex++){
+            var grocery = groceries[currentIndex]
+
+            groceriesElement.innerHTML +='<li>' + grocery + '</li>'
+
+        }
     }
  </script>
      
